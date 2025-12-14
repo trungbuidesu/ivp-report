@@ -1,0 +1,136 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{hartley2003multiple}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Literature Review}{2}{section.2}\protected@file@percent }
+\newlabel{sec:literature}{{2}{2}{Literature Review}{section.2}{}}
+\citation{zhang2000flexible}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Pinhole Camera Model and Calibration}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.1}The Pinhole Model}{3}{subsubsection.2.1.1}\protected@file@percent }
+\newlabel{eq:pinhole}{{1}{3}{The Pinhole Model}{equation.2.1}{}}
+\newlabel{eq:intrinsic}{{2}{3}{The Pinhole Model}{equation.2.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.2}Lens Distortion}{3}{subsubsection.2.1.2}\protected@file@percent }
+\newlabel{eq:radial_distortion}{{3}{3}{Lens Distortion}{equation.2.3}{}}
+\newlabel{eq:tangential_distortion}{{4}{3}{Lens Distortion}{equation.2.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.3}Camera Calibration Techniques}{3}{subsubsection.2.1.3}\protected@file@percent }
+\citation{garrido2014charuco}
+\citation{criminisi2000single}
+\citation{cipolla1999camera}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Single-View Metrology}{4}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Homography and Ground-Plane Measurement}{4}{subsubsection.2.2.1}\protected@file@percent }
+\newlabel{eq:homography}{{5}{4}{Homography and Ground-Plane Measurement}{equation.2.5}{}}
+\newlabel{eq:ground_distance}{{6}{4}{Homography and Ground-Plane Measurement}{equation.2.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Planar Object Rectification}{4}{subsubsection.2.2.2}\protected@file@percent }
+\newlabel{eq:pinhole_scale}{{8}{4}{Planar Object Rectification}{equation.2.8}{}}
+\citation{android_camera2}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Vanishing Points and Cross-Ratio}{5}{subsubsection.2.2.3}\protected@file@percent }
+\newlabel{eq:cross_ratio}{{9}{5}{Vanishing Points and Cross-Ratio}{equation.2.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Smartphone Camera Systems and the Android Camera2 API}{5}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Smartphone Camera Hardware}{5}{subsubsection.2.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}The Camera2 API and Intrinsic Metadata}{5}{subsubsection.2.3.2}\protected@file@percent }
+\citation{arcore_overview}
+\citation{vogt2021ar_accuracy}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3}Digital Zoom and the Dynamic Crop Region}{6}{subsubsection.2.3.3}\protected@file@percent }
+\newlabel{eq:dynamic_intrinsics}{{10}{6}{Digital Zoom and the Dynamic Crop Region}{equation.2.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Existing Measurement Approaches}{6}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}AR-Based Measurement Systems}{6}{subsubsection.2.4.1}\protected@file@percent }
+\citation{mulloni2010handheld}
+\citation{criminisi2000single}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}Traditional Image-Based Measurement}{7}{subsubsection.2.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Research Gap and Contributions}{7}{subsection.2.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Comparison of existing measurement approaches with the proposed system.}}{7}{table.1}\protected@file@percent }
+\newlabel{tab:related_work}{{1}{7}{Comparison of existing measurement approaches with the proposed system}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Proposed System}{8}{section.3}\protected@file@percent }
+\newlabel{sec:system}{{3}{8}{Proposed System}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Overall Architecture}{8}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Overall system architecture showing the Flutter application layer, native Android modules (Camera2 and ARCore), and the measurement pipeline. Solid arrows indicate the traditional flow (main contribution); dashed arrows indicate the ARCore baseline flow.}}{8}{figure.1}\protected@file@percent }
+\newlabel{fig:architecture}{{1}{8}{Overall system architecture showing the Flutter application layer, native Android modules (Camera2 and ARCore), and the measurement pipeline. Solid arrows indicate the traditional flow (main contribution); dashed arrows indicate the ARCore baseline flow}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Data Acquisition Layer}{9}{subsubsection.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Camera Model and Dynamic Intrinsics}{9}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Intrinsic Parameter Sources}{9}{subsubsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Dynamic Intrinsics Computation}{9}{subsubsection.3.2.2}\protected@file@percent }
+\newlabel{eq:kout_final}{{15}{10}{Dynamic Intrinsics Computation}{equation.3.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Measurement Modules}{10}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Module A: Ground-Plane Measurement}{10}{subsubsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Module B: Planar Object Measurement}{10}{subsubsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Module C: Single-View Metrology}{11}{subsubsection.3.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.4}Module D: Multi-Frame Refinement}{11}{subsubsection.3.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Image Processing Pipeline}{11}{subsection.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Traditional measurement pipeline flowchart. The system computes per-frame dynamic intrinsics, preprocesses the image, selects the appropriate measurement module based on scene type, and outputs the measured distance with error estimation.}}{12}{figure.2}\protected@file@percent }
+\newlabel{fig:pipeline_flowchart}{{2}{12}{Traditional measurement pipeline flowchart. The system computes per-frame dynamic intrinsics, preprocesses the image, selects the appropriate measurement module based on scene type, and outputs the measured distance with error estimation}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}User Interface and Modes}{12}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}User Mode}{12}{subsubsection.3.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}Researcher Mode}{12}{subsubsection.3.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}ARCore Baseline Implementation}{13}{subsection.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experimental Setup}{13}{section.4}\protected@file@percent }
+\newlabel{sec:experiment}{{4}{13}{Experimental Setup}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Hardware and Environment}{13}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Test Devices}{13}{subsubsection.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Device A: Xiaomi Poco X6 Pro}{14}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Device B: Google Pixel 7 Pro}{14}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Device Selection Rationale}{14}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Test Environment}{14}{subsubsection.4.1.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Test objects and their ground-truth dimensions.}}{15}{table.2}\protected@file@percent }
+\newlabel{tab:test_objects}{{2}{15}{Test objects and their ground-truth dimensions}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Test Objects}{15}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Experimental Conditions}{15}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Distance to Object}{15}{subsubsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Zoom Levels}{15}{subsubsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Viewing Angles}{15}{subsubsection.4.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}Target Accuracy}{15}{subsubsection.4.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.5}Method Configurations}{16}{subsubsection.4.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Experimental Procedure}{16}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Calibration Phase (One-time)}{16}{subsubsection.4.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Measurement Trials}{16}{subsubsection.4.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}Data Collection Summary}{17}{subsubsection.4.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Evaluation Metrics}{17}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Absolute Error}{17}{subsubsection.4.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}Relative Error}{17}{subsubsection.4.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3}Aggregate Statistics}{17}{subsubsection.4.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.4}Comparative Analysis}{17}{subsubsection.4.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{17}{section.5}\protected@file@percent }
+\newlabel{sec:results}{{5}{17}{Results}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Overall Measurement Accuracy}{17}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Effect of Distance}{17}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Effect of Digital Zoom}{18}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Effect of Viewing Angle}{18}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Traditional Pipeline vs ARCore Comparison}{18}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Effect of Processing Options}{18}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{18}{section.6}\protected@file@percent }
+\newlabel{sec:discussion}{{6}{18}{Discussion}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Validation of Dynamic Intrinsics}{18}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Comparison with ARCore}{18}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Conditions Favoring the Traditional Pipeline}{18}{subsubsection.6.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Conditions Favoring ARCore}{19}{subsubsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}Failure Modes}{19}{subsubsection.6.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Impact of Processing Options}{19}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.1}Undistortion}{19}{subsubsection.6.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.2}Edge-Based Snapping}{19}{subsubsection.6.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.3}Perspective Rectification}{19}{subsubsection.6.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.4}Multi-Frame Averaging}{20}{subsubsection.6.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Limitations}{20}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1}Device-Specific Validation}{20}{subsubsection.6.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.2}Geometric Assumptions}{20}{subsubsection.6.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3}Manual Input Requirements}{20}{subsubsection.6.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.4}Distortion Coefficient Availability}{20}{subsubsection.6.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Educational and Research Value}{20}{subsection.6.5}\protected@file@percent }
+\bibstyle{unsrt}
+\bibcite{kour2014real}{1}
+\bibcite{kour2014fast}{2}
+\bibcite{hadash2018estimate}{3}
+\bibcite{zhang2000flexible}{4}
+\bibcite{hartley2003multiple}{5}
+\bibcite{criminisi2000single}{6}
+\bibcite{cipolla1999camera}{7}
+\bibcite{android_camera2}{8}
+\bibcite{arcore_overview}{9}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.1}Computer Vision Education}{21}{subsubsection.6.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.2}Research Applications}{21}{subsubsection.6.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.3}Reproducibility}{21}{subsubsection.6.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Practical Recommendations}{21}{subsection.6.6}\protected@file@percent }
+\bibcite{vogt2021ar_accuracy}{10}
+\bibcite{mulloni2010handheld}{11}
+\bibcite{garrido2014charuco}{12}
+\gdef \@abspage@last{22}
