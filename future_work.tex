@@ -1,0 +1,17 @@
+
+\section{Future Work}
+\label{sec:future}
+
+While the proposed system demonstrates the efficacy of a transparent, calibration-aware measurement pipeline, several avenues for extension and improvement remain. These future directions aim to reduce user burden while maintaining the system's core philosophy of transparency and device independence.
+
+\subsection{Deep Learning-Based Automation}
+The current pipeline relies on manual point selection or classical edge detection, which can be brittle in cluttered scenes or low-light conditions. Future work could integrate lightweight, on-device neural networks (e.g., TensorFlow Lite implementations of YOLO or MobileNet-SSD) to automatically detect common target objects such as screens, papers, and boxes. This would allow the system to ``propose'' measurement candidates to the user, significantly streamlining the workflow from image capture to metric result.
+
+\subsection{Monocular Depth Estimation}
+To relax the requirement for known camera height or object distance, modern learning-based monocular depth estimation models (such as MiDaS or Depth Anything) could be integrated. While computationally intensive, these models can infer relative depth maps from a single image. By combining this dense depth information with the sparse metric constraints from the camera intrinsics and IMU, it may be possible to solve for absolute scale without explicit user input, bridging the gap between single-view metrology and active depth sensing.
+
+\subsection{Multi-View Photogrammetry}
+For static objects, the current single-view limitation precludes the measurement of arbitrary 3D shapes. Extending the pipeline to support multi-view photogrammetry or Structure from Motion (SfM) would enable full 3D reconstruction. By guiding the user to capture a small arc of images around an object, the system could triangulate feature points to recover 3D structure. Crucially, the high-quality IMU data and dynamic intrinsics already implemented in this work would serve as robust initialization priors for the bundle adjustment process.
+
+\subsection{Continuous Background Calibration}
+Finally, the dependency on explicit ChArUco calibration for high-precision distortion correction could be removed by implementing an online auto-calibration mechanism. By continuously analyzing the curvature of straight lines in the user's environment (e.g., door frames, windows) during background operation, the system could iteratively refine its estimate of the radial distortion coefficients $(k_1, k_2)$ without requiring a dedicated calibration session.
