@@ -19,7 +19,7 @@
 \graphicspath{ {./images/} }
 
 
-\title{Design and Implementation of a Monocular Measurement System on Android using Dynamic Camera Intrinsics}
+\title{Design and Implementatison of a Monocular Measurement System on Android using Dynamic Camera Intrinsics}
 
 
 \author{
@@ -686,23 +686,6 @@ This module targets vertical structures (doors, walls, buildings) using vanishin
          where $h_{cam}$ is the known camera height.
 \end{enumerate}
 
-\subsubsection{Module D: Multi-Frame Refinement}
-
-This optional module reduces measurement noise by aggregating estimates across multiple frames:
-
-\begin{enumerate}
-   \item The user captures a short video while keeping the target object in view.
-   \item Selected measurement points are tracked across frames using Lucas-Kanade optical flow or feature matching (ORB/SIFT).
-   \item For each frame $i$, the dynamic intrinsics $K_{out,i}$ are computed and the corresponding measurement module yields estimate $d_i$.
-   \item Outliers are filtered using RANSAC or interquartile range (IQR).
-   \item The final result is the median or mean of valid estimates:
-         \begin{equation}
-            d_{final} = \text{median}(d_1, d_2, \ldots, d_n)
-         \end{equation}
-\end{enumerate}
-
-This approach mitigates errors from hand shake, IMU noise, and point selection inaccuracy.
-
 % Measurement Pipeline Flowchart using TikZ
 \begin{figure}[htbp]
    \centering
@@ -731,10 +714,9 @@ This approach mitigates errors from hand shake, IMU noise, and point selection i
       \node[decision, below=1.2cm of preprocess] (select) {Select\\Module};
 
       % Modules - horizontal row with proper spacing
-      \node[module, below=1.5cm of select, xshift=-4cm, fill=teal!15] (modA) {Module A\\Ground-Plane};
-      \node[module, below=1.5cm of select, xshift=-1.3cm, fill=cyan!15] (modB) {Module B\\Planar Object};
-      \node[module, below=1.5cm of select, xshift=1.3cm, fill=orange!15] (modC) {Module C\\Single-View};
-      \node[module, below=1.5cm of select, xshift=4cm, fill=gray!15] (modD) {Module D\\Multi-Frame};
+      \node[module, below=1.5cm of select, xshift=-3cm, fill=teal!15] (modA) {Module A\\Ground-Plane};
+      \node[module, below=1.5cm of select, xshift=0cm, fill=cyan!15] (modB) {Module B\\Planar Object};
+      \node[module, below=1.5cm of select, xshift=3cm, fill=orange!15] (modC) {Module C\\Single-View};
 
       % Merge
       \node[process, below=3cm of select] (result) {Compute Distance \& Error Estimate};
@@ -752,13 +734,11 @@ This approach mitigates errors from hand shake, IMU noise, and point selection i
       \draw[arrow] (select.south) -- ++(0,-0.4) -| (modA.north);
       \draw[arrow] (select.south) -- ++(0,-0.4) -| (modB.north);
       \draw[arrow] (select.south) -- ++(0,-0.4) -| (modC.north);
-      \draw[arrow] (select.south) -- ++(0,-0.4) -| (modD.north);
 
       % Arrows from modules to result
       \draw[arrow] (modA.south) -- ++(0,-0.3) -| (result.north west);
-      \draw[arrow] (modB.south) -- ++(0,-0.3) -| ([xshift=-0.5cm]result.north);
-      \draw[arrow] (modC.south) -- ++(0,-0.3) -| ([xshift=0.5cm]result.north);
-      \draw[arrow] (modD.south) -- ++(0,-0.3) -| (result.north east);
+      \draw[arrow] (modB.south) -- ++(0,-0.3) -| (result.north);
+      \draw[arrow] (modC.south) -- ++(0,-0.3) -| (result.north east);
 
       \draw[arrow] (result) -- (output);
 
@@ -840,7 +820,6 @@ Researcher Mode exposes the full measurement pipeline for educational and experi
             \item Toggle undistortion on/off
             \item Toggle edge-based point snapping
             \item Toggle perspective rectification
-            \item Toggle multi-frame averaging
          \end{itemize}
 
    \item \textbf{Measurement Model Selection}:
@@ -848,7 +827,6 @@ Researcher Mode exposes the full measurement pipeline for educational and experi
             \item Ground-plane homography
             \item Planar object + pinhole
             \item Single-view metrology
-            \item Multi-frame refinement
          \end{itemize}
 
    \item \textbf{Debug Overlay}:
@@ -1318,16 +1296,22 @@ For planar objects captured at oblique angles, rectification should significantl
    \item At steep angles ($>$40°): Rectification becomes critical; without it, errors can exceed 30\%.
 \end{itemize}
 
-\subsubsection{Multi-Frame Averaging}
+\subsubsection{Exclusion of Multi-Frame Averaging}
 
-Aggregating measurements across multiple frames is expected to reduce random errors from:
+While multi-frame averaging could theoretically reduce measurement noise by aggregating estimates across multiple frames, this feature was not implemented in the current system due to several practical considerations:
+
 \begin{itemize}
-   \item Hand shake and camera motion
-   \item IMU noise and orientation fluctuations
-   \item Point selection variability
+   \item \textbf{Scope limitation}: The implementation of robust optical flow tracking (Lucas-Kanade) and outlier filtering (RANSAC) would significantly increase system complexity beyond the scope of this coursework project.
+   
+   \item \textbf{Focus on core contribution}: The primary contribution of this work is the Dynamic Intrinsics mechanism for handling digital zoom. Multi-frame averaging, while useful, is orthogonal to this core innovation and would dilute the research focus.
+   
+   \item \textbf{Real-time performance constraints}: Video-based measurement requires continuous frame processing and feature tracking, which may compromise the responsiveness and simplicity that make the traditional pipeline attractive compared to ARCore.
+   
+   \item \textbf{Single-shot measurement priority}: The target use case emphasizes quick, single-shot measurements rather than video-based workflows. For applications requiring noise reduction, users can manually repeat measurements---a simpler alternative to automated multi-frame processing.
 \end{itemize}
 
-We anticipate that median filtering across 5--10 frames can reduce standard deviation by 40--60\%, at the cost of increased measurement time.
+Future work could explore lightweight temporal filtering techniques that balance noise reduction with implementation complexity.
+
 
 \subsection{Limitations}
 
